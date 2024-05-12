@@ -16,8 +16,10 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= spawnRate)
         {
-            Instantiate(asteroidPrefab, new Vector3(Random.Range(-10f, 10f), 7f, 0), Quaternion.identity);
-            Instantiate(mineralPrefab, new Vector3(Random.Range(-10f, 10f), 7f, 0), Quaternion.identity);
+            Instantiate(asteroidPrefab, new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0), Quaternion.identity);
+            Debug.Log("Asteroid spawned");
+            Instantiate(mineralPrefab, new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0), Quaternion.identity);
+            Debug.Log("Mineral spawned");
             timer = 0f;
         }
     }

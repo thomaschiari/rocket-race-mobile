@@ -46,6 +46,25 @@ public class Spawner : MonoBehaviour
             speed *= 1.1f;
             spdTimer = 0f;
         }
+
+        GameObject[] asteroids = GameObject.FindGameObjectsWithTag("Asteroid");
+        GameObject[] minerals = GameObject.FindGameObjectsWithTag("Mineral");
+
+        foreach (GameObject asteroid in asteroids)
+        {
+            if (asteroid.transform.position.y < -5.5f)
+            {
+                DestroyObject(asteroid);
+            }
+        }
+
+        foreach (GameObject mineral in minerals)
+        {
+            if (mineral.transform.position.y < -5.5f)
+            {
+                DestroyObject(mineral);
+            }
+        }
     }
 
     void SpawnObject(GameObject prefab)
@@ -73,5 +92,11 @@ public class Spawner : MonoBehaviour
         {
             Debug.LogWarning("Could not find a suitable spawn position for " + prefab.name);
         }
+    }
+
+    void DestroyObject(GameObject obj)
+    {
+        Debug.Log(obj.name + " destroyed");
+        Destroy(obj);
     }
 }

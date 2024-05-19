@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-uusing UnityEngine;
+using UnityEngine;
 
 public class RandomizeSprite : MonoBehaviour
 {
-    // Colocar no asteroid / planet prefab
     void Start()
     {
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         if (renderer != null)
         {
             SpriteManager spriteManager = FindObjectOfType<SpriteManager>();
-            renderer.sprite = spriteManager.GetRandomSprite();
+            if (spriteManager != null)
+            {
+                renderer.sprite = spriteManager.GetRandomSprite();
+            }
+            else
+            {
+                Debug.LogWarning("SpriteManager not found in the scene!");
+            }
         }
     }
 }

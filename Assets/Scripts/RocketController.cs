@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class RocketController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 100f;
     public GameObject projectilePrefab; // Referência ao prefab do projetil
     public Transform firePoint; // Ponto de origem do disparo
     public static int mineralCount = 5; // Contador de minerais
 
     private float minX, maxX, minY, maxY;
+    private Vector2 movement = Vector2.zero; // Armazena o movimento
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         // Calcular os limites da tela
         Camera camera = Camera.main;
         Vector3 screenBottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
@@ -26,32 +30,56 @@ public class RocketController : MonoBehaviour
 
     void Update()
     {
-        // Movimento do foguete
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        // Aplicar movimento
+        Vector2 move = movement * speed * Time.deltaTime;
+        rb.velocity = move;
 
-        Vector2 movement = new Vector2(horizontal, vertical);
-        transform.Translate(movement * speed * Time.deltaTime);
+        // Log do movimento aplicado
+        Debug.Log("Moving: " + move);
 
         // Restringir a posição do foguete dentro dos limites da tela
         Vector3 newPosition = transform.position;
         newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         transform.position = newPosition;
-
-        // Disparar projéteis
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (mineralCount > 0)
-            {
-                Fire();
-                mineralCount--;
-            }
-        }
     }
 
-    void Fire()
+    public void MoveUp()
     {
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        movement = Vector2.up;
+        Debug.Log("MoveUp");
+    }
+
+    public void MoveDown()
+    {
+        movement = Vector2.down;
+        Debug.Log("MoveDown");
+    }
+
+    public void MoveLeft()
+    {
+        movement = Vector2.left;
+        Debug.Log("MoveLeft");
+    }
+
+    public void MoveRight()
+    {
+        movement = Vector2.right;
+        Debug.Log("MoveRight");
+    }
+
+    public void StopMovement()
+    {
+        movement = Vector2.zero;
+        Debug.Log("StopMovement");
+    }
+
+    public void Fire()
+    {
+        if (mineralCount > 0)
+        {
+            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            mineralCount--;
+        }
     }
 }

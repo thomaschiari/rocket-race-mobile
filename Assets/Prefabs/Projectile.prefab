@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 2
+  mineralPrefab: {fileID: 8151468621836754966, guid: bf077e61c1a21b8bc969f0d03f3b7bf2, type: 3}
 --- !u!60 &3646624013030620965
 PolygonCollider2D:
   m_ObjectHideFlags: 0

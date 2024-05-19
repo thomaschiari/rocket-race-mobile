@@ -7,6 +7,7 @@ public class RocketController : MonoBehaviour
     public float speed = 5f;
     public GameObject projectilePrefab; // Referência ao prefab do projetil
     public Transform firePoint; // Ponto de origem do disparo
+    public static int mineralCount = 5; // Contador de minerais
 
     void Update()
     {
@@ -20,7 +21,11 @@ public class RocketController : MonoBehaviour
         // Disparar projéteis
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Fire();
+            if (mineralCount > 0)
+            {
+                Fire();
+                mineralCount--;
+            }
         }
     }
 

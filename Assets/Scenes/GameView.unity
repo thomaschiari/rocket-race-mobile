@@ -275,7 +275,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ab2dae09e3fe1c689bb213ca33234b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 2e6e83b83a58ef5c99d2691a2b2552fb, type: 3}
+  - {fileID: 21300000, guid: 56f24db495148ad999d68ae205497f44, type: 3}
+  - {fileID: 21300000, guid: 9b6a175127d3706149af4b0a82352654, type: 3}
+  - {fileID: 21300000, guid: 8496a7358c787f389832e8db28d8432d, type: 3}
+  - {fileID: 21300000, guid: 3c7fee45e873af60e97aebe84ac73efc, type: 3}
+  - {fileID: 21300000, guid: ff2dd320ddbcec3e196c811fc67329f7, type: 3}
+  - {fileID: 21300000, guid: fb0fcfe90def6b385931d95ff0a8484f, type: 3}
 --- !u!4 &416616195
 Transform:
   m_ObjectHideFlags: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    public float lifetime = 2f;
+    public float lifetime = 5f;
+
+    public GameObject mineralPrefab; // Referência ao prefab do mineral
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class Projectile : MonoBehaviour
         {
             Destroy(other.gameObject); // Destroi o asteróide
             Destroy(gameObject); // Destroi o projetil
+            // Spawnar um mineral na posição do asteróide destruído
+            Instantiate(mineralPrefab, transform.position, Quaternion.identity);
         }
     }
 }

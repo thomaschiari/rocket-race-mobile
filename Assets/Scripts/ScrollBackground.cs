@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScrollBackground : MonoBehaviour
 {
-    public float speed = 2.5f;
+    private float speed = Spawner.speed;
 
     // Update is called once per frame
     void Update()

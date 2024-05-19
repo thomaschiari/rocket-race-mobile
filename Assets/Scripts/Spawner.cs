@@ -13,12 +13,15 @@ public class Spawner : MonoBehaviour
     private float asteroidTimer = 0f;
     private float mineralTimer = 0f;
     private float srTimer = 0f;
+    private float spdTimer = 0f;
+    public static float speed = 1f;
 
     void Update()
     {
         asteroidTimer += Time.deltaTime;
         mineralTimer += Time.deltaTime;
         srTimer += Time.deltaTime;
+        spdTimer += Time.deltaTime;
 
         if (asteroidTimer >= asteroidSpawnRate)
         {
@@ -36,6 +39,12 @@ public class Spawner : MonoBehaviour
         {
             asteroidSpawnRate *= 0.9f;
             srTimer = 0f;
+        }
+        
+        if (spdTimer >= 5.0f && speed <= 5.0f)
+        {
+            speed *= 1.1f;
+            spdTimer = 0f;
         }
     }
 

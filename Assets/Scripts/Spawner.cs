@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject asteroidPrefab;
     public GameObject mineralPrefab;
-    public float asteroidSpawnRate = 1.5f;
+    public float asteroidSpawnRate = 5.5f;
     public float mineralSpawnRate = 10.0f;
     public float spawnRadius = 0.5f; // Define o raio para verificar a sobreposição
 

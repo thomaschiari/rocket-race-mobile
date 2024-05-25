@@ -9,4 +9,14 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("GameView");
     }
+
+    public void ChooseShip()
+    {
+        SceneManager.LoadScene("ChooseShip");
+    }
+
+    // public void Rules()
+    // {
+    //     SceneManager.LoadScene("Rules");
+    // }
 }

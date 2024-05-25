@@ -464,8 +464,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: MoveDown
           m_Mode: 1
           m_Arguments:
@@ -480,8 +480,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: StopMovement
           m_Mode: 1
           m_Arguments:
@@ -583,37 +583,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &310980784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 310980785}
-  m_Layer: 0
-  m_Name: FirePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &310980785
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310980784}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1520298376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416616193
 GameObject:
@@ -941,8 +910,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: MoveRight
           m_Mode: 1
           m_Arguments:
@@ -957,8 +926,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: StopMovement
           m_Mode: 1
           m_Arguments:
@@ -1053,6 +1022,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647705885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6541665095312098520, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
+  m_PrefabInstance: {fileID: 8807825946132771555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97eb21adf54827ac8e8b25a19c2d0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &665751375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,8 +1172,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: MoveLeft
           m_Mode: 1
           m_Arguments:
@@ -1208,8 +1188,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: StopMovement
           m_Mode: 1
           m_Arguments:
@@ -1869,8 +1849,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: MoveUp
           m_Mode: 1
           m_Arguments:
@@ -1885,8 +1865,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2107783095}
-          m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+        - m_Target: {fileID: 647705885}
+          m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
           m_MethodName: StopMovement
           m_Mode: 1
           m_Arguments:
@@ -2031,11 +2011,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507165440}
   m_CullTransparentMesh: 1
---- !u!4 &1520298376 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-  m_PrefabInstance: {fileID: 2600100371699311827}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1609120237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,8 +2277,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107783095}
-        m_TargetAssemblyTypeName: RocketController, Assembly-CSharp
+      - m_Target: {fileID: 647705885}
+        m_TargetAssemblyTypeName: RocketXMController, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
@@ -2352,18 +2327,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048253293}
   m_CullTransparentMesh: 1
---- !u!114 &2107783095 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-  m_PrefabInstance: {fileID: 2600100371699311827}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec78b3fb92e93132858fd685a84f3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &2600100371699311827
+--- !u!1001 &8807825946132771555
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2371,142 +2335,71 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: speed
-      value: 100
+    - target: {fileID: 4553391021802514159, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
+      propertyPath: m_Name
+      value: RocketXiaoMing
       objectReference: {fileID: 0}
-    - target: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 310980785}
-    - target: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 6541665095312098520, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1872091780}
-    - target: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 6541665095312098520, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: mineralCountText
       value: 
       objectReference: {fileID: 927641175}
-    - target: {fileID: 464559763008736280, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 8891763089613310110, guid: dd697a83094a2aad7bfe1f1b39f56002, type: 3}
-    - target: {fileID: 4085987440554673290, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Size.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085987440554673290, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Size.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085987440554673290, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0963dc85e2ea151f08f8c8a78fb881da, type: 3}
-    - target: {fileID: 4085987440554673290, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7186179
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Size.y
-      value: 1.8963473
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0020947307
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.328987
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143994077137920838, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553391021802514159, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_Name
-      value: Rocket
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.43795216
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.45346516
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0016
+      value: 0.009
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.4033
+      value: -3.85
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+    - target: {fileID: 7398221365831313944, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7398221365831313944, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 310980785}
+    m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ea6127d82a9d0edebb8350403ce8e24, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 759bc77b0fccfaeeb8dc0ae0d5d14818, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 252746292}
   - {fileID: 582290729}
-  - {fileID: 2600100371699311827}
   - {fileID: 1609120239}
   - {fileID: 416616195}
   - {fileID: 829073155}
   - {fileID: 209228347}
+  - {fileID: 8807825946132771555}

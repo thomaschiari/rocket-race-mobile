@@ -13,7 +13,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener,
     public bool adStarted;
     public bool adCompleted;
     public Button showAdButton;
-    private bool testMode = true;
+    private bool testMode = false;
 
     // Start is called before the first frame update
     void Start()

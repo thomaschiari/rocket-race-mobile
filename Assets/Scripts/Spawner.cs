@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject mineralPrefab;
     public float asteroidSpawnRate;
     public float mineralSpawnRate;
-    public float spawnRadius = 0.1f; // Define o raio para verificar a sobreposição
+    public float spawnRadius = 0.05f; // Define o raio para verificar a sobreposição
     private float asteroidTimer = 0f;
     private float mineralTimer = 0f;
     private float srTimer = 0f;
@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
     {
         speed = 1.0f;
         asteroidSpawnRate = 10f;
-        mineralSpawnRate = 20f;
+        mineralSpawnRate = 60f;
     }
 
     void Update()
@@ -41,13 +41,13 @@ public class Spawner : MonoBehaviour
             mineralTimer = 0f;
         }
 
-        if (srTimer >= 5.0f && asteroidSpawnRate >= 0.5f)
+        if (srTimer >= 5.0f && asteroidSpawnRate >= 0.25f)
         {
             asteroidSpawnRate *= 0.8f;
             srTimer = 0f;
         }
         
-        if (spdTimer >= 5.0f && speed <= 5.0f)
+        if (spdTimer >= 5.0f && speed <= 10.0f)
         {
             speed *= 1.1f;
             spdTimer = 0f;

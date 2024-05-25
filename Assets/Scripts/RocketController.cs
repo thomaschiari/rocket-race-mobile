@@ -109,6 +109,7 @@ public class RocketController : MonoBehaviour
         // Calcular a pontuação baseada no tempo passado e nos minerais coletados
         score = Mathf.Round((Time.time - startTime + mineralCount) * 100) / 100;
         scoreText.text = "Score: " + score;
+        PlayerPrefs.SetFloat("Score", score);
     }
 
     public float GetScore()

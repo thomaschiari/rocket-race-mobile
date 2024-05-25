@@ -7,12 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameOverController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // Texto para exibir a pontuação
-    private RocketController rocketController;
 
     void Start()
     {
-        rocketController = FindObjectOfType<RocketController>();
-        scoreText.text = rocketController.GetScore().ToString();
+        scoreText.text = PlayerPrefs.GetFloat("Score").ToString();
     }
 
     public void backToMenu()

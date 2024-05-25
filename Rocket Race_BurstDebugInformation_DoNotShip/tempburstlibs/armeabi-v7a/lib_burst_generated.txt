@@ -28,14 +28,14 @@ Library: /home/thomas/Rocket Race/Temp/BurstOutput/tempburstlibs/armeabi-v7a/lib
 --assembly-defines=Unity.AdaptivePerformance.Samsung.Android;
 --assembly-defines=Unity.LevelPlay;
 --assembly-defines=Unity.Burst;
+--assembly-defines=Unity.Services.Core.Internal;
 --assembly-defines=Unity.Services.Core.Device;
 --assembly-defines=Unity.AdaptivePerformance;
+--assembly-defines=Unity.Services.Core.Threading;
 --assembly-defines=Unity.VisualScripting.Core;
 --assembly-defines=Unity.2D.Animation.Runtime;
 --assembly-defines=Unity.2D.Tilemap.Extras;
---assembly-defines=Unity.Services.Core.Internal;
 --assembly-defines=Unity.Services.Core.Telemetry;
---assembly-defines=Unity.Services.Core.Threading;
 --assembly-defines=Unity.InternalAPIEngineBridge.001;
 --assembly-defines=Unity.2D.Common.Runtime;
 --assembly-defines=Unity.Timeline;

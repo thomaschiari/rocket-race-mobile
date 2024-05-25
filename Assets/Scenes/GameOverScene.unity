@@ -1268,8 +1268,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b720ebc91ab039c19425f97c8de4fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 410268830}
-  _androidAdUnitId: Rewarded_Android
+  myGameIdAndroid: 5625355
+  adUnitIdAndroid: Rewarded_Android
+  myAdUnitId: 
+  myAdStatus: 
+  adStarted: 0
+  adCompleted: 0
+  showAdButton: {fileID: 410268830}
 --- !u!4 &1704107842
 Transform:
   m_ObjectHideFlags: 0

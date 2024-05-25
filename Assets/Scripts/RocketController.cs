@@ -14,7 +14,7 @@ public class RocketController : MonoBehaviour
     private float minX, maxX, minY, maxY;
     private Vector2 movement = Vector2.zero; // Armazena o movimento
     private Rigidbody2D rb;
-    private float score; // Variável para armazenar a pontuação do jogador
+    public float score; // Variável para armazenar a pontuação do jogador
     private float startTime; // Variável para armazenar o tempo inicial
 
     void Start()

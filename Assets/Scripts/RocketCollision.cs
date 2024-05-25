@@ -10,7 +10,7 @@ public class RocketCollision : MonoBehaviour
         if (other.gameObject.tag == "Asteroid")
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("Home");
+            SceneManager.LoadScene("GameOverScene");
         }
         else if (other.gameObject.tag == "Mineral")
         {

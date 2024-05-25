@@ -41,12 +41,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7398221365831313944}
   - component: {fileID: 4085987440554673290}
-  - component: {fileID: 464559763008736280}
   - component: {fileID: 4143994077137920838}
   - component: {fileID: 5967936172894759834}
   - component: {fileID: 7103166715950558156}
+  - component: {fileID: 7465102987913946931}
   m_Layer: 0
-  m_Name: Rocket
+  m_Name: RocketEvo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4553391021802514159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0016, y: -4.4033, z: 0}
+  m_LocalPosition: {x: 0.003, y: -3.768, z: 0}
   m_LocalScale: {x: 0.43795216, y: 0.45346516, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0963dc85e2ea151f08f8c8a78fb881da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52aea1b157c1246b485d28b1fc14872c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,23 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &464559763008736280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4553391021802514159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec78b3fb92e93132858fd685a84f3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  projectilePrefab: {fileID: 8891763089613310110, guid: dd697a83094a2aad7bfe1f1b39f56002, type: 3}
-  firePoint: {fileID: 5146111808813323982}
-  mineralCountText: {fileID: 0}
-  scoreText: {fileID: 0}
 --- !u!61 &4143994077137920838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,18 +152,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020947307, y: -0.328987}
+  m_Offset: {x: 0.0023821592, y: 0.0029446483}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 2.56}
+    oldSize: {x: 1.9, y: 2.8}
     newSize: {x: 1.28, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7186179, y: 1.8963473}
+  m_Size: {x: 1.94957, y: 2.869255}
   m_EdgeRadius: 0
 --- !u!50 &5967936172894759834
 Rigidbody2D:
@@ -221,3 +204,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124a648b12217736199136a3cebe080c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7465102987913946931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553391021802514159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85381973830bbe481b02a8b1351ac66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70
+  projectilePrefab: {fileID: 8891763089613310110, guid: dd697a83094a2aad7bfe1f1b39f56002, type: 3}
+  firePoint: {fileID: 5146111808813323982}
+  mineralCountText: {fileID: 0}
+  scoreText: {fileID: 0}

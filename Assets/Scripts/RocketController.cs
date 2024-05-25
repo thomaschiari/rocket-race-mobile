@@ -14,7 +14,7 @@ public class RocketController : MonoBehaviour
     private float minX, maxX, minY, maxY;
     private Vector2 movement = Vector2.zero; // Armazena o movimento
     private Rigidbody2D rb;
-    public float score; // Variável para armazenar a pontuação do jogador
+    private float score; // Variável para armazenar a pontuação do jogador
     private float startTime; // Variável para armazenar o tempo inicial
 
     void Start()
@@ -109,5 +109,10 @@ public class RocketController : MonoBehaviour
         // Calcular a pontuação baseada no tempo passado e nos minerais coletados
         score = Mathf.Round((Time.time - startTime + mineralCount) * 100) / 100;
         scoreText.text = "Score: " + score;
+    }
+
+    public float GetScore()
+    {
+        return Mathf.Round(score * 100) / 100;
     }
 }

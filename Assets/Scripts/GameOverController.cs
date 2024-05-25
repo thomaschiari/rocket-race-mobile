@@ -11,7 +11,8 @@ public class GameOverController : MonoBehaviour
 
     void Start()
     {
-        scoreText.text = rocketController.score.ToString();
+        rocketController = FindObjectOfType<RocketController>();
+        scoreText.text = rocketController.GetScore().ToString();
     }
 
     public void backToMenu()
@@ -22,5 +23,10 @@ public class GameOverController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("GameView");
+    }
+
+    public void watchAd()
+    {
+        // Implement
     }
 }

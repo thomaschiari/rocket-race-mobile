@@ -4,71 +4,91 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
-public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
+public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] Button _showAdButton;
-    [SerializeField] string _androidAdUnitId = "Rewarded_Android";
-    string _adUnitId = null;
+    public string myGameIdAndroid = "5625355";
+    public string adUnitIdAndroid = "Rewarded_Android";
+    public string myAdUnitId;
+    public string myAdStatus = "";
+    public bool adStarted;
+    public bool adCompleted;
+    public Button showAdButton;
+    private bool testMode = true;
 
-    void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-#if UNITY_ANDROID
-        _adUnitId = _androidAdUnitId;
-#endif
+        #if UNITY_IOS
+	        Advertisement.Initialize(myGameIdIOS, testMode, this);
+	        myAdUnitId = adUnitIdIOS;
+        #else
+                Advertisement.Initialize(myGameIdAndroid, testMode, this);
+                myAdUnitId = adUnitIdAndroid;
+        #endif
 
-        _showAdButton.interactable = false;
-    }
+        showAdButton.onClick.AddListener(ShowAd);
 
-    public void LoadAd()
-    {
-        Debug.Log("Loading Ad...");
-        Advertisement.Load(_adUnitId, this);
-    }
-
-    public void OnUnityAdsAdLoaded(string adUnitId)
-    {
-        Debug.Log("Ad Loaded");
-        if (adUnitId.Equals(_adUnitId))
-        {
-            _showAdButton.onClick.AddListener(ShowAd);
-            _showAdButton.interactable = true;
-        }
     }
 
     public void ShowAd()
     {
-        Debug.Log("Showing Ad...");
-        Advertisement.Show(_adUnitId, this);
+        Advertisement.Load(myAdUnitId,this);
     }
 
-    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
+    // Update is called once per frame
+    void Update()
     {
-        if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+
+    }
+
+    public void OnInitializationComplete()
+    {
+        Debug.Log("Unity Ads initialization complete.");
+        Advertisement.Load(myAdUnitId,this);
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        myAdStatus = message;
+        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
+    }
+
+    public void OnUnityAdsAdLoaded(string adUnitId)
+    {
+        Debug.Log("Ad Loaded: " + adUnitId);
+        if (!adStarted)
         {
-            Debug.Log("Unity Ads Rewarded Ad Completed");
-            // Grant a reward.
+            Advertisement.Show(myAdUnitId,this);
         }
     }
-
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
-        Debug.Log($"Error loading Ad Unit {adUnitId}: {error.ToString()} - {message}");
-        // Use the error details to determine whether to try to load another ad.
+        myAdStatus = message;
+        Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
+
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
     {
+        myAdStatus = message;
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
-        // Use the error details to determine whether to try to load another ad.
     }
- 
-    public void OnUnityAdsShowStart(string adUnitId) { }
-    public void OnUnityAdsShowClick(string adUnitId) { }
- 
-    void OnDestroy()
+
+    public void OnUnityAdsShowStart(string adUnitId)
     {
-        // Clean up the button listeners:
-        _showAdButton.onClick.RemoveAllListeners();
+        adStarted = true;
+        Debug.Log("Ad Started: " + adUnitId);
+    }
+
+    public void OnUnityAdsShowClick(string adUnitId)
+    {
+        Debug.Log("Ad Clicked: " + adUnitId);
+    }
+
+    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
+    {
+        adCompleted = showCompletionState == UnityAdsShowCompletionState.COMPLETED;
+        Debug.Log("Ad Completed: " + adUnitId);
     }
 
 }

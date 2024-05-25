@@ -15,7 +15,7 @@ public class RocketCollision : MonoBehaviour
         else if (other.gameObject.tag == "Mineral")
         {
             Destroy(other.gameObject);
-            RocketController.mineralCount += 5;
+            RocketController.mineralCount += 2;
         }
     }
 }

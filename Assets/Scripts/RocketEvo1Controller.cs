@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class RocketController : MonoBehaviour, IRocket
+public class RocketEvo1Controller : MonoBehaviour, IRocket
 {
-    public float speed = 100f;
-    public GameObject projectilePrefab; // Referência ao prefab do projétil
+    public float speed = 150f; // Velocidade do foguete
+    public GameObject projectilePrefab; // Prefab do projétil
     public Transform firePoint; // Ponto de origem do disparo
     public static int mineralCount; // Contador de minerais
     public TextMeshProUGUI mineralCountText; // Texto para exibir o contador de minerais
@@ -99,9 +99,24 @@ public class RocketController : MonoBehaviour, IRocket
     {
         if (mineralCount > 0)
         {
-            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            FireProjectiles();
             mineralCount--;
         }
+    }
+
+    void FireProjectiles()
+    {
+        // Disparar o projétil principal
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+        // Calcular as direções dos projéteis diagonais
+        float angleOffset = 15f; // Ângulo dos projéteis diagonais
+        Quaternion leftRotation = Quaternion.Euler(0, 0, angleOffset);
+        Quaternion rightRotation = Quaternion.Euler(0, 0, -angleOffset);
+
+        // Disparar os projéteis diagonais
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation * leftRotation);
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation * rightRotation);
     }
 
     void UpdateMineralCount()

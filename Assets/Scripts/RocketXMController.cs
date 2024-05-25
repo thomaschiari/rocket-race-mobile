@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class RocketController : MonoBehaviour, IRocket
+public class RocketXMController : MonoBehaviour, IRocket
 {
-    public float speed = 100f;
+    public float speed = 200f;
     public GameObject projectilePrefab; // Referência ao prefab do projétil
     public Transform firePoint; // Ponto de origem do disparo
     public static int mineralCount; // Contador de minerais

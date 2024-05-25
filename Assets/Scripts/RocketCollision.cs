@@ -15,7 +15,12 @@ public class RocketCollision : MonoBehaviour
         else if (other.gameObject.tag == "Mineral")
         {
             Destroy(other.gameObject);
-            RocketController.mineralCount += 2;
+
+            IRocket rocket = gameObject.GetComponent<IRocket>();
+            if (rocket != null)
+            {
+                rocket.MineralCount += 2;
+            }
         }
     }
 }

@@ -49,15 +49,15 @@ public class RocketDSController : BaseRocketController
     {
         if (MineralCount > 0)
         {
-            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            StartCoroutine(ShootDelay());
-            Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            StartCoroutine(FireDoubleShot());
             MineralCount--;
         }
     }
 
-    IEnumerator ShootDelay()
+    IEnumerator FireDoubleShot()
     {
-        yield return new WaitForSeconds(0.5f);
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        yield return new WaitForSeconds(0.2f); 
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 }

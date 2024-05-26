@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // Texto para exibir a pontuação
     public TextMeshProUGUI highScoreText; // Texto para exibir a pontuação máxima
     public TextMeshProUGUI newHighScore; // Texto para exibir o contador de minerais
+    public TextMeshProUGUI textMineralCount; // Texto para exibir o contador de minerais
+    public Button watchAdButton; // Botão para assistir ao anúncio
 
     void Start()
     {
         float score = PlayerPrefs.GetFloat("Score", 0);
         float highScore = PlayerPrefs.GetFloat("HighScore", 0);
+
+        int mineralCount = (int)(score / 10);
+
+        if (PlayerPrefs.HasKey("MineralCount"))
+        {
+            mineralCount += PlayerPrefs.GetInt("MineralCount");
+        }
+
+        PlayerPrefs.SetInt("MineralCount", mineralCount);
 
         scoreText.text = score.ToString();
 
@@ -25,6 +37,14 @@ public class GameOverController : MonoBehaviour
         }
 
         highScoreText.text = highScore.ToString();
+
+        textMineralCount.text = "Minerals: " + mineralCount;
+
+        // Adicionar listener ao botão de assistir ao anúncio
+        watchAdButton.onClick.AddListener(() => ShowAdAndRewardMinerals());
+
+        // Inscrever-se no evento de anúncio assistido
+        RewardedAdsButton.OnAdWatched += OnAdWatched;
     }
 
     public void backToMenu()
@@ -37,8 +57,29 @@ public class GameOverController : MonoBehaviour
         SceneManager.LoadScene("GameView");
     }
 
-    public void watchAd()
+    private void ShowAdAndRewardMinerals()
     {
-        // Implement
+        // Implementar a lógica para assistir ao anúncio
+        RewardedAdsButton adButton = FindObjectOfType<RewardedAdsButton>();
+        if (adButton != null)
+        {
+            adButton.ShowAd();
+        }
+    }
+
+    private void OnAdWatched()
+    {
+        // Atualizar o texto do contador de minerais
+        UpdateMineralCountText();
+        // Atualizar a visibilidade do botão de assistir ao anúncio
+        watchAdButton.interactable = false;
+        // Atualizar texto do botão de assistir ao anúncio
+        watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+    }
+
+    private void UpdateMineralCountText()
+    {
+        int minerals = PlayerPrefs.GetInt("MineralCount", 0);
+        textMineralCount.text = "Minerals: " + minerals;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,37 +15,30 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener,
     public bool adCompleted;
     public Button showAdButton;
     private bool testMode = false;
+    public static event Action OnAdWatched; // Evento para notificar quando um anúncio é assistido
 
-    // Start is called before the first frame update
     void Start()
     {
         #if UNITY_IOS
-	        Advertisement.Initialize(myGameIdIOS, testMode, this);
-	        myAdUnitId = adUnitIdIOS;
+            Advertisement.Initialize(myGameIdIOS, testMode, this);
+            myAdUnitId = adUnitIdIOS;
         #else
-                Advertisement.Initialize(myGameIdAndroid, testMode, this);
-                myAdUnitId = adUnitIdAndroid;
+            Advertisement.Initialize(myGameIdAndroid, testMode, this);
+            myAdUnitId = adUnitIdAndroid;
         #endif
 
         showAdButton.onClick.AddListener(ShowAd);
-
     }
 
     public void ShowAd()
     {
-        Advertisement.Load(myAdUnitId,this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Advertisement.Load(myAdUnitId, this);
     }
 
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
-        Advertisement.Load(myAdUnitId,this);
+        Advertisement.Load(myAdUnitId, this);
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
@@ -58,14 +52,14 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener,
         Debug.Log("Ad Loaded: " + adUnitId);
         if (!adStarted)
         {
-            Advertisement.Show(myAdUnitId,this);
+            Advertisement.Show(myAdUnitId, this);
         }
     }
+
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
         myAdStatus = message;
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
-
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
@@ -87,8 +81,18 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener,
 
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
-        adCompleted = showCompletionState == UnityAdsShowCompletionState.COMPLETED;
-        Debug.Log("Ad Completed: " + adUnitId);
-    }
+        if (adUnitId == myAdUnitId && showCompletionState == UnityAdsShowCompletionState.COMPLETED)
+        {
+            adCompleted = true;
+            Debug.Log("Ad Completed: " + adUnitId);
 
+            // Aumentar o contador de minerais no PlayerPrefs
+            int minerals = PlayerPrefs.GetInt("MineralCount", 0);
+            PlayerPrefs.SetInt("MineralCount", minerals + 10);
+            PlayerPrefs.Save();
+
+            // Notificar que um anúncio foi assistido
+            OnAdWatched?.Invoke();
+        }
+    }
 }

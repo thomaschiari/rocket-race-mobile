@@ -622,6 +622,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3c7fee45e873af60e97aebe84ac73efc, type: 3}
   - {fileID: 21300000, guid: ff2dd320ddbcec3e196c811fc67329f7, type: 3}
   - {fileID: 21300000, guid: fb0fcfe90def6b385931d95ff0a8484f, type: 3}
+  - {fileID: 21300000, guid: 22659f1a85f27854b9e95e3235dadc1c, type: 3}
+  - {fileID: 21300000, guid: 758abab22b767afde8dcc600985b667d, type: 3}
+  - {fileID: 21300000, guid: 168842a441e0f55ccb3f604b26854dd0, type: 3}
+  - {fileID: 21300000, guid: fc0783997dc7c90d68dc9589ad188edb, type: 3}
+  - {fileID: 21300000, guid: 0eeb23fc2a22ded9dadcb710f2dd4317, type: 3}
+  - {fileID: 21300000, guid: e0bbeeaa4ecbf66d4b7f779dc7e7c757, type: 3}
+  - {fileID: 21300000, guid: 61d859aac3c86b109a51e1768680701f, type: 3}
+  - {fileID: 21300000, guid: 366dcf7fcc37e924ba39cb5dc35813c1, type: 3}
+  - {fileID: 21300000, guid: 7170f6d05651edcbe98eecd8e74864d1, type: 3}
+  - {fileID: 21300000, guid: e7f64686a2a2d5427acbd2ed8e6b167f, type: 3}
+  - {fileID: 21300000, guid: 01240cd2a4b2eaefe8db2c468069bd56, type: 3}
+  - {fileID: 21300000, guid: 5e8253cb33944f17eaf0b82c1e737a83, type: 3}
+  - {fileID: 21300000, guid: d47f31709c1e64c2e90e89ad97e59561, type: 3}
+  - {fileID: 21300000, guid: c94a9ccfe081ebbd3b4bd8b9c584f46b, type: 3}
+  - {fileID: 21300000, guid: 06a686e8dca9b3594a608b88c5b2ec45, type: 3}
   minerals:
   - {fileID: 21300000, guid: 54c83564107ae4cdba40edce5020a8a5, type: 3}
   - {fileID: 21300000, guid: 721562e5a475345fab60932e4688c539, type: 3}

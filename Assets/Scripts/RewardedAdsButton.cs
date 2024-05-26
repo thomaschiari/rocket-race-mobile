@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
+using TMPro;
 
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
@@ -93,6 +94,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsInitializationListener,
 
             // Notificar que um anúncio foi assistido
             OnAdWatched?.Invoke();
+
+            showAdButton.interactable = false;
+            showAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+            PlayerPrefs.SetInt("AdWatched", 1);
         }
     }
 }

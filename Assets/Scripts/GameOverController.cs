@@ -18,6 +18,8 @@ public class GameOverController : MonoBehaviour
         float score = PlayerPrefs.GetFloat("Score", 0);
         float highScore = PlayerPrefs.GetFloat("HighScore", 0);
 
+        PlayerPrefs.SetInt("AdWatched", 0);
+
         int mineralCount = (int)(score / 10);
 
         if (PlayerPrefs.HasKey("MineralCount"))
@@ -45,6 +47,12 @@ public class GameOverController : MonoBehaviour
 
         // Inscrever-se no evento de anúncio assistido
         RewardedAdsButton.OnAdWatched += OnAdWatched;
+    }
+
+    private void Update()
+    {
+        UpdateMineralCountText();
+        UpdateAdButtonState();
     }
 
     public void backToMenu()
@@ -75,11 +83,21 @@ public class GameOverController : MonoBehaviour
         watchAdButton.interactable = false;
         // Atualizar texto do botão de assistir ao anúncio
         watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+        PlayerPrefs.SetInt("AdWatched", 1);
     }
 
     private void UpdateMineralCountText()
     {
         int minerals = PlayerPrefs.GetInt("MineralCount", 0);
         textMineralCount.text = "Minerals: " + minerals;
+    }
+
+    private void UpdateAdButtonState()
+    {
+        if (PlayerPrefs.GetInt("AdWatched", 0) == 1)
+        {
+            watchAdButton.interactable = false;
+            watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+        }
     }
 }

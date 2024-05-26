@@ -11,6 +11,8 @@ public class ChooseShipController : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("AdWatched", 0); // Reiniciar o contador de anúncios assistidos
+
         // Inicializar o texto do contador de minerais
         UpdateMineralCountText();
 
@@ -38,6 +40,18 @@ public class ChooseShipController : MonoBehaviour
     {
         // Atualizar o texto do contador de minerais
         UpdateMineralCountText();
+        UpdateAdButtonState();
+
+        // Verificar se o jogador tem minerais suficientes para desbloquear naves
+        int minerals = PlayerPrefs.GetInt("MineralCount", 0);
+        foreach (Button button in shipButtons)
+        {
+            string shipName = button.name;
+            if (!IsShipEnabled(shipName) && minerals >= GetRequiredMineralsForShip(shipName))
+            {
+                button.interactable = true; // Ativar o botão se o jogador tiver minerais suficientes
+            }
+        }
     }
 
     private void OnDestroy()
@@ -130,6 +144,7 @@ public class ChooseShipController : MonoBehaviour
             }
         }
 
+        PlayerPrefs.SetInt("AdWatched", 1); // Marcar que o anúncio foi assistido
         // Atualizar o texto do contador de minerais
         UpdateMineralCountText();
     }
@@ -138,5 +153,14 @@ public class ChooseShipController : MonoBehaviour
     {
         int minerals = PlayerPrefs.GetInt("MineralCount", 0);
         mineralCountText.text = "Minerals: " + minerals;
+    }
+
+    private void UpdateAdButtonState()
+    {
+        if (PlayerPrefs.GetInt("AdWatched", 0) == 1)
+        {
+            watchAdButton.interactable = false;
+            watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+        }
     }
 }

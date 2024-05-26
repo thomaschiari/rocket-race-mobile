@@ -11,8 +11,7 @@ public class ChooseShipController : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("AdWatched", 0); // Reiniciar o contador de anúncios assistidos
-
+        PlayerPrefs.SetInt("AdWatched", 0); // Definir o valor inicial para o anúncio assistido (0 = não assistido
         // Inicializar o texto do contador de minerais
         UpdateMineralCountText();
 
@@ -30,10 +29,10 @@ public class ChooseShipController : MonoBehaviour
         }
 
         // Adicionar listener ao botão de assistir ao anúncio
-        watchAdButton.onClick.AddListener(() => ShowAdAndRewardMinerals());
+        watchAdButton.onClick.AddListener(() => ShowAd());
 
         // Inscrever-se no evento de anúncio assistido
-        RewardedAdsButton.OnAdWatched += OnAdWatched;
+        AdManager.OnAdWatched += OnAdWatched;
     }
 
     private void Update()
@@ -57,7 +56,7 @@ public class ChooseShipController : MonoBehaviour
     private void OnDestroy()
     {
         // Desinscrever-se do evento de anúncio assistido
-        RewardedAdsButton.OnAdWatched -= OnAdWatched;
+        AdManager.OnAdWatched -= OnAdWatched;
     }
 
     public void ChooseShip(string shipName)
@@ -117,18 +116,23 @@ public class ChooseShipController : MonoBehaviour
         }
     }
 
-    private void ShowAdAndRewardMinerals()
+    private void ShowAd()
     {
-        // Implementar a lógica para assistir ao anúncio
-        RewardedAdsButton adButton = FindObjectOfType<RewardedAdsButton>();
-        if (adButton != null)
+        // Chamar o AdManager para mostrar o anúncio
+        AdManager adManager = FindObjectOfType<AdManager>();
+        if (adManager != null)
         {
-            adButton.ShowAd();
+            adManager.ShowAd();
         }
     }
 
     private void OnAdWatched()
     {
+        // Aumentar a quantidade de minerais após assistir ao anúncio
+        int minerals = PlayerPrefs.GetInt("MineralCount", 0);
+        PlayerPrefs.SetInt("MineralCount", minerals + 10); // Recompensa de 10 minerais por anúncio assistido
+        PlayerPrefs.Save();
+
         // Atualizar a visibilidade do botão de assistir ao anúncio
         watchAdButton.interactable = false;
         // Atualizar texto do botão de assistir ao anúncio
@@ -144,9 +148,11 @@ public class ChooseShipController : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetInt("AdWatched", 1); // Marcar que o anúncio foi assistido
+        PlayerPrefs.SetInt("AdWatched", 1); // Definir o anúncio assistido como verdadeiro
+
         // Atualizar o texto do contador de minerais
         UpdateMineralCountText();
+        UpdateAdButtonState();
     }
 
     private void UpdateMineralCountText()

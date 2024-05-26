@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using System;
 
 public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
@@ -14,6 +15,8 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     private string adUnitId;
     private static AdManager instance;
     private bool isAdLoaded = false;
+
+    public static event Action OnAdWatched; // Evento para notificar quando um anúncio é assistido
 
     void Awake()
     {
@@ -100,6 +103,11 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         {
             isAdLoaded = false;
             LoadAd();
+
+            if (showCompletionState == UnityAdsShowCompletionState.COMPLETED)
+            {
+                OnAdWatched?.Invoke(); // Notificar que o anúncio foi assistido
+            }
         }
     }
 }

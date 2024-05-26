@@ -12,20 +12,19 @@ public class GameOverController : MonoBehaviour
 
     void Start()
     {
-        scoreText.text = PlayerPrefs.GetFloat("Score").ToString();
-        if (PlayerPrefs.HasKey("HighScore"))
+        float score = PlayerPrefs.GetFloat("Score", 0);
+        float highScore = PlayerPrefs.GetFloat("HighScore", 0);
+
+        scoreText.text = score.ToString();
+
+        if (score > highScore)
         {
-            highScoreText.text = PlayerPrefs.GetFloat("HighScore").ToString();
-        }
-        else
-        {
-            highScoreText.text = PlayerPrefs.GetFloat("Score").ToString();
-        }
-        if (PlayerPrefs.GetFloat("Score") > PlayerPrefs.GetFloat("HighScore"))
-        {
-            PlayerPrefs.SetFloat("HighScore", PlayerPrefs.GetFloat("Score"));
+            PlayerPrefs.SetFloat("HighScore", score);
+            highScore = score;
             newHighScore.text = "New High Score!";
         }
+
+        highScoreText.text = highScore.ToString();
     }
 
     public void backToMenu()

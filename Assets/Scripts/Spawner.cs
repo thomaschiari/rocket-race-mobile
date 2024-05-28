@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject mineralPrefab;
     public float asteroidSpawnRate;
     public float mineralSpawnRate;
-    public float spawnRadius = 0.05f; // Define o raio para verificar a sobreposição
+    public float spawnRadius = 0.025f; // Define o raio para verificar a sobreposição
     private float asteroidTimer = 0f;
     private float mineralTimer = 0f;
     private float srTimer = 0f;
@@ -41,9 +41,9 @@ public class Spawner : MonoBehaviour
             mineralTimer = 0f;
         }
 
-        if (srTimer >= 5.0f && asteroidSpawnRate >= 0.25f)
+        if (srTimer >= 5.0f && asteroidSpawnRate >= 0.1f)
         {
-            asteroidSpawnRate *= 0.8f;
+            asteroidSpawnRate *= 0.85f;
             srTimer = 0f;
         }
         
@@ -81,7 +81,7 @@ public class Spawner : MonoBehaviour
 
         do
         {
-            spawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
+            spawnPosition = new Vector3(Random.Range(-2.25f, 2.25f), 5.5f, 0);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, spawnRadius);
 
             if (colliders.Length == 0)

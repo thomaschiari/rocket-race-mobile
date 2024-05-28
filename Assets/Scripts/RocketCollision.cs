@@ -22,5 +22,10 @@ public class RocketCollision : MonoBehaviour
                 rocket.MineralCount += 2;
             }
         }
+        else if (other.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("GameOverScene");
+        }
     }
 }

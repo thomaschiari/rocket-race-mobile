@@ -8,10 +8,11 @@ public class ChooseShipController : MonoBehaviour
     public Button[] shipButtons; // Referências para os botões das naves
     public TextMeshProUGUI mineralCountText; // Texto para exibir o contador de minerais
     public Button watchAdButton; // Botão para assistir ao anúncio
+    public TextMeshProUGUI watchAdButtonText; // Texto para exibir no botão de assistir ao anúncio
 
     private void Start()
     {
-        PlayerPrefs.SetInt("AdWatched", 0); // Definir o valor inicial para o anúncio assistido (0 = não assistido
+        PlayerPrefs.SetInt("AdWatched", 0); // Definir o valor inicial para o anúncio assistido (0 = não assistido)
         // Inicializar o texto do contador de minerais
         UpdateMineralCountText();
 
@@ -33,13 +34,17 @@ public class ChooseShipController : MonoBehaviour
 
         // Inscrever-se no evento de anúncio assistido
         AdManager.OnAdWatched += OnAdWatched;
+        // Inscrever-se no evento de anúncio carregado
+        AdManager.OnAdLoaded += OnAdLoaded;
+
+        // Inicializar o estado do botão de anúncio
+        UpdateAdButtonState();
     }
 
     private void Update()
     {
         // Atualizar o texto do contador de minerais
         UpdateMineralCountText();
-        UpdateAdButtonState();
 
         // Verificar se o jogador tem minerais suficientes para desbloquear naves
         int minerals = PlayerPrefs.GetInt("MineralCount", 0);
@@ -51,12 +56,15 @@ public class ChooseShipController : MonoBehaviour
                 button.interactable = true; // Ativar o botão se o jogador tiver minerais suficientes
             }
         }
+
+        UpdateAdButtonState();
     }
 
     private void OnDestroy()
     {
-        // Desinscrever-se do evento de anúncio assistido
+        // Desinscrever-se dos eventos de anúncio assistido e carregado
         AdManager.OnAdWatched -= OnAdWatched;
+        AdManager.OnAdLoaded -= OnAdLoaded;
     }
 
     public void ChooseShip(string shipName)
@@ -136,7 +144,7 @@ public class ChooseShipController : MonoBehaviour
         // Atualizar a visibilidade do botão de assistir ao anúncio
         watchAdButton.interactable = false;
         // Atualizar texto do botão de assistir ao anúncio
-        watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+        watchAdButtonText.text = "Ad watched!";
 
         // Verificar os botões de nave e ativar os que podem ser comprados
         foreach (Button button in shipButtons)
@@ -161,12 +169,33 @@ public class ChooseShipController : MonoBehaviour
         mineralCountText.text = "Minerals: " + minerals;
     }
 
+    private void OnAdLoaded()
+    {
+        // Habilitar o botão de assistir ao anúncio quando um anúncio for carregado
+        watchAdButton.interactable = true;
+        watchAdButtonText.text = "Watch Ad :)";
+    }
+
     private void UpdateAdButtonState()
     {
         if (PlayerPrefs.GetInt("AdWatched", 0) == 1)
         {
             watchAdButton.interactable = false;
-            watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+            watchAdButtonText.text = "Ad watched!";
+        }
+        else
+        {
+            AdManager adManager = FindObjectOfType<AdManager>();
+            if (adManager != null && adManager.IsAdLoaded())
+            {
+                watchAdButton.interactable = true;
+                watchAdButtonText.text = "Watch Ad :)";
+            }
+            else
+            {
+                watchAdButton.interactable = false;
+                watchAdButtonText.text = "No Ads Available";
+            }
         }
     }
 }

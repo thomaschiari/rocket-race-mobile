@@ -4,6 +4,7 @@ public class SpriteManager : MonoBehaviour
 {
     public Sprite[] sprites; // Array de sprites
     public Sprite[] minerals; // Array de minerais
+    public Sprite[] bosses; // Array de boss
 
     public Sprite GetRandomSprite()
     {
@@ -25,5 +26,16 @@ public class SpriteManager : MonoBehaviour
         }
         int index = Random.Range(0, minerals.Length);
         return minerals[index];
+    }
+
+    public Sprite GetRandomBoss()
+    {
+        if (bosses.Length == 0)
+        {
+            Debug.LogWarning("No bosses available in SpriteManager!");
+            return null;
+        }
+        int index = Random.Range(0, bosses.Length);
+        return bosses[index];
     }
 }

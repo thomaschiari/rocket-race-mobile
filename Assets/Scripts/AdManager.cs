@@ -17,6 +17,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     private bool isAdLoaded = false;
 
     public static event Action OnAdWatched; // Evento para notificar quando um anúncio é assistido
+    public static event Action OnAdLoaded;  // Evento para notificar quando um anúncio é carregado
 
     void Awake()
     {
@@ -67,6 +68,11 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         }
     }
 
+    public bool IsAdLoaded()
+    {
+        return isAdLoaded;
+    }
+
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
@@ -82,6 +88,7 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     {
         Debug.Log("Ad Loaded");
         isAdLoaded = true;
+        OnAdLoaded?.Invoke();
     }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)

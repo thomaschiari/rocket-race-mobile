@@ -1018,6 +1018,7 @@ MonoBehaviour:
   newHighScore: {fileID: 1086401237}
   textMineralCount: {fileID: 829159806}
   watchAdButton: {fileID: 410268830}
+  watchAdButtonText: {fileID: 314768516}
 --- !u!114 &879443256
 MonoBehaviour:
   m_ObjectHideFlags: 0

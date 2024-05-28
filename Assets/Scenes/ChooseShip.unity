@@ -227,6 +227,7 @@ MonoBehaviour:
   - {fileID: 850650603}
   mineralCountText: {fileID: 738284728}
   watchAdButton: {fileID: 1089461240}
+  watchAdButtonText: {fileID: 1612927223}
 --- !u!4 &499303268
 Transform:
   m_ObjectHideFlags: 0
@@ -346,7 +347,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TankShip
+          m_StringArgument: RocketButton2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &713828551
@@ -625,7 +626,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LoliShip
+          m_StringArgument: RocketButton4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &850650604
@@ -1135,7 +1136,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ClassicShip
+          m_StringArgument: RocketButton1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1381492672
@@ -1640,7 +1641,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: XiaoMingShip
+          m_StringArgument: RocketButton3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1847490975

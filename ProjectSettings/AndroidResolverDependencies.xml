@@ -41,7 +41,7 @@
   </files>
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
-    <setting name="bundleId" value="com.DefaultCompany.com.unity.template.mobile2D" />
+    <setting name="bundleId" value="com.ThomasChiari.com.unity.template.mobile2D" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />

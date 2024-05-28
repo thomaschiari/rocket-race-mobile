@@ -1018,6 +1018,7 @@ MonoBehaviour:
   newHighScore: {fileID: 1086401237}
   textMineralCount: {fileID: 829159806}
   watchAdButton: {fileID: 410268830}
+  watchAdButtonText: {fileID: 314768516}
 --- !u!114 &879443256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,52 +1604,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172978690}
   m_CullTransparentMesh: 1
---- !u!1 &1452554763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1452554765}
-  - component: {fileID: 1452554764}
-  m_Layer: 0
-  m_Name: AdManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1452554764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452554763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e7014fd84f3f8bcb8e00cf31783e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _androidGameId: 5625355
-  _testMode: 1
---- !u!4 &1452554765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452554763}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.53497, y: 327.981, z: -0.41216666}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513181152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,57 +1738,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513181152}
   m_CullTransparentMesh: 1
---- !u!1 &1704107840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1704107842}
-  - component: {fileID: 1704107841}
-  m_Layer: 0
-  m_Name: RewardedAdsButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1704107841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704107840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b720ebc91ab039c19425f97c8de4fb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myGameIdAndroid: 5625355
-  adUnitIdAndroid: Rewarded_Android
-  myAdUnitId: 
-  myAdStatus: 
-  adStarted: 0
-  adCompleted: 0
-  showAdButton: {fileID: 410268830}
---- !u!4 &1704107842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704107840}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.53497, y: 327.981, z: -0.41216666}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726448420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,5 +2232,3 @@ SceneRoots:
   - {fileID: 1731971577}
   - {fileID: 879443259}
   - {fileID: 413203611}
-  - {fileID: 1452554765}
-  - {fileID: 1704107842}

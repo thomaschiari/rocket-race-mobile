@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6541665095312098520}
   m_Layer: 0
   m_Name: RocketXiaoMing
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,5 +219,3 @@ MonoBehaviour:
   speed: 200
   projectilePrefab: {fileID: 8891763089613310110, guid: dd697a83094a2aad7bfe1f1b39f56002, type: 3}
   firePoint: {fileID: 5146111808813323982}
-  mineralCountText: {fileID: 0}
-  scoreText: {fileID: 0}

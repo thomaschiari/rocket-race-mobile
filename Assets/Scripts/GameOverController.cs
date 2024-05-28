@@ -9,9 +9,10 @@ public class GameOverController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // Texto para exibir a pontuação
     public TextMeshProUGUI highScoreText; // Texto para exibir a pontuação máxima
-    public TextMeshProUGUI newHighScore; // Texto para exibir o contador de minerais
+    public TextMeshProUGUI newHighScore; // Texto para exibir a nova pontuação máxima
     public TextMeshProUGUI textMineralCount; // Texto para exibir o contador de minerais
     public Button watchAdButton; // Botão para assistir ao anúncio
+    public TextMeshProUGUI watchAdButtonText; // Texto para exibir no botão de assistir ao anúncio
 
     void Start()
     {
@@ -43,16 +44,29 @@ public class GameOverController : MonoBehaviour
         textMineralCount.text = "Minerals: " + mineralCount;
 
         // Adicionar listener ao botão de assistir ao anúncio
-        watchAdButton.onClick.AddListener(() => ShowAdAndRewardMinerals());
+        watchAdButton.onClick.AddListener(() => ShowAd());
 
         // Inscrever-se no evento de anúncio assistido
-        RewardedAdsButton.OnAdWatched += OnAdWatched;
+        AdManager.OnAdWatched += OnAdWatched;
+        // Inscrever-se no evento de anúncio carregado
+        AdManager.OnAdLoaded += OnAdLoaded;
+
+        // Verificar o estado inicial do anúncio
+        UpdateAdButtonState();
+        UpdateMineralCountText();
     }
 
     private void Update()
     {
         UpdateMineralCountText();
         UpdateAdButtonState();
+    }
+
+    private void OnDestroy()
+    {
+        // Desinscrever-se dos eventos de anúncio assistido e carregado
+        AdManager.OnAdWatched -= OnAdWatched;
+        AdManager.OnAdLoaded -= OnAdLoaded;
     }
 
     public void backToMenu()
@@ -62,28 +76,47 @@ public class GameOverController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("GameView");
+        if (PlayerPrefs.GetInt("GameMode") == 1)
+        {
+            SceneManager.LoadScene("GameView");
+        }
+        else if (PlayerPrefs.GetInt("StoryMode") == 1)
+        {
+            SceneManager.LoadScene("StoryGameView");
+        }
     }
 
-    private void ShowAdAndRewardMinerals()
+    private void ShowAd()
     {
-        // Implementar a lógica para assistir ao anúncio
-        RewardedAdsButton adButton = FindObjectOfType<RewardedAdsButton>();
-        if (adButton != null)
+        // Chamar o AdManager para mostrar o anúncio
+        AdManager adManager = FindObjectOfType<AdManager>();
+        if (adManager != null)
         {
-            adButton.ShowAd();
+            adManager.ShowAd();
         }
     }
 
     private void OnAdWatched()
     {
+        // Aumentar a quantidade de minerais após assistir ao anúncio
+        int minerals = PlayerPrefs.GetInt("MineralCount", 0);
+        PlayerPrefs.SetInt("MineralCount", minerals + 10); // Recompensa de 10 minerais por anúncio assistido
+        PlayerPrefs.Save();
+
         // Atualizar o texto do contador de minerais
         UpdateMineralCountText();
         // Atualizar a visibilidade do botão de assistir ao anúncio
         watchAdButton.interactable = false;
         // Atualizar texto do botão de assistir ao anúncio
-        watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+        watchAdButtonText.text = "Ad watched!";
         PlayerPrefs.SetInt("AdWatched", 1);
+    }
+
+    private void OnAdLoaded()
+    {
+        // Habilitar o botão de assistir ao anúncio quando um anúncio for carregado
+        watchAdButton.interactable = true;
+        watchAdButtonText.text = "Watch Ad :)";
     }
 
     private void UpdateMineralCountText()
@@ -97,7 +130,20 @@ public class GameOverController : MonoBehaviour
         if (PlayerPrefs.GetInt("AdWatched", 0) == 1)
         {
             watchAdButton.interactable = false;
-            watchAdButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ad watched!";
+            watchAdButtonText.text = "Ad watched!";
+        }
+        else {
+            AdManager adManager = FindObjectOfType<AdManager>();
+            if (adManager != null && adManager.IsAdLoaded())
+            {
+                watchAdButton.interactable = true;
+                watchAdButtonText.text = "Watch Ad :)";
+            }
+            else
+            {
+                watchAdButton.interactable = false;
+                watchAdButtonText.text = "No Ads Available";
+            }
         }
     }
 }

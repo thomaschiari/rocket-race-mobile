@@ -755,6 +755,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9d47feae43a0b4a8cbe93b752defdf70, type: 3}
   - {fileID: 21300000, guid: de56e2a29b114466aac7d6e67869c9ea, type: 3}
   - {fileID: 21300000, guid: 94d42d86b3b774d28a23d2262c065341, type: 3}
+  bosses: []
 --- !u!4 &416616195
 Transform:
   m_ObjectHideFlags: 0

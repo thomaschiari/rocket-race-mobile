@@ -8,6 +8,7 @@
   <xs:import schemaLocation="UnityEditor.U2D.Layout.xsd" namespace="UnityEditor.U2D.Layout" />
   <xs:import schemaLocation="UnityEditor.Tilemaps.xsd" namespace="UnityEditor.Tilemaps" />
   <xs:import schemaLocation="UnityEditor.AdaptivePerformance.UI.Editor.xsd" namespace="UnityEditor.AdaptivePerformance.UI.Editor" />
+  <xs:import schemaLocation="Unity.Services.Core.Editor.Environments.UI.xsd" namespace="Unity.Services.Core.Editor.Environments.UI" />
   <xs:import schemaLocation="UnityEditor.UIElements.Debugger.xsd" namespace="UnityEditor.UIElements.Debugger" />
   <xs:import schemaLocation="Unity.UI.Builder.xsd" namespace="Unity.UI.Builder" />
   <xs:import schemaLocation="UnityEditor.Search.xsd" namespace="UnityEditor.Search" />

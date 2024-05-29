@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryGameView.unity
     guid: 3457543b9ea355a5788d75815207a814
+  - enabled: 1
+    path: Assets/Scenes/Rules.unity
+    guid: 329ac34cdd2e84347a8f50dd37b3f5fc
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: a9cab1be2cb67b64cb6da0783875dfd8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d162e1ccbdf8605ddb4c5fd626e8ebf9, type: 2}

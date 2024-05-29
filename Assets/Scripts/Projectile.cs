@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Asteroid"))
         {
+            AudioManager.instance.PlayHit();
             Destroy(other.gameObject); // Destroi o asteróide
             Destroy(gameObject); // Destroi o projetil
             // Spawnar um mineral na posição do asteróide destruído

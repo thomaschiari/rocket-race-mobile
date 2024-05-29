@@ -49,6 +49,7 @@ public class RocketDSController : BaseRocketController
     {
         if (MineralCount > 0)
         {
+            AudioManager.instance.PlayBakaShoot();
             StartCoroutine(FireDoubleShot());
             MineralCount--;
         }

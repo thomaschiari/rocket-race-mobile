@@ -25,6 +25,7 @@ public class MenuController : MonoBehaviour
     }
     public void StartGame()
     {
+        AudioManager.instance.FromMenuToGame();
         if (PlayerPrefs.GetInt("GameMode") == 1)
         {
             SceneManager.LoadScene("GameView");
@@ -38,6 +39,11 @@ public class MenuController : MonoBehaviour
     public void ChooseShip()
     {
         SceneManager.LoadScene("ChooseShip");
+    }
+
+    public void Rules()
+    {
+        SceneManager.LoadScene("Rules");
     }
 
     // public void Rules()

@@ -48,6 +48,7 @@ public class RocketEvo1Controller : BaseRocketController
     {
         if (MineralCount > 0)
         {
+            AudioManager.instance.PlayShoot();
             FireProjectiles();
             MineralCount--;
         }

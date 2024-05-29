@@ -71,11 +71,13 @@ public class GameOverController : MonoBehaviour
 
     public void backToMenu()
     {
+        AudioManager.instance.PlayMenuMusic();
         SceneManager.LoadScene("Home");
     }
 
     public void RestartGame()
     {
+        AudioManager.instance.FromMenuToGame();
         if (PlayerPrefs.GetInt("GameMode") == 1)
         {
             SceneManager.LoadScene("GameView");

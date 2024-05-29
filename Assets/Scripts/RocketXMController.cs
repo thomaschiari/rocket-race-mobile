@@ -49,6 +49,7 @@ public class RocketXMController : BaseRocketController
     {
         if (MineralCount > 0)
         {
+            AudioManager.instance.PlayShoot();
             Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             MineralCount--;
         }

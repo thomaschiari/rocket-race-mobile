@@ -14,3 +14,6 @@ Rocket Race 2D Game
 - Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/hartzmann/grid License code: YSYJYEKGRGO9LXUP
 - Music from #Uppbeat (free for Creators!): https://uppbeat.io/t/moire/space-ranger License code: GIXQOFDYPZFTZYVJ
 
+### Game Design Document:
+Access our Game Design Document. [Click Here](https://island-barberry-4fe.notion.site/Rocket-Race-Mobile-Game-694638e974054e38a32d26ba8558f38b)
+
